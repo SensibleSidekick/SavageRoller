@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Entity
@@ -24,11 +25,17 @@ public class User {
     private String email;
     private boolean isAdmin = false;
 
-    //private static final
+    //Password stuff
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    public boolean isMatchingPassword(String password){
+        return encoder.matches(password, pwHash);
+    }
+
+    //Constructors, Getters and Setters
     public User(String username, String password, String email) {
         this.username = username;
-        this.pwHash = password;
+        this.pwHash = encoder.encode(password);
         this.email = email;
     }
 

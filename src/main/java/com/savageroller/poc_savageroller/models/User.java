@@ -2,12 +2,10 @@ package com.savageroller.poc_savageroller.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.savageroller.poc_savageroller.models.Character;
+
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 public class User {
@@ -28,7 +26,7 @@ public class User {
     private boolean isAdmin = false;
 
     @OneToMany(mappedBy = "user")
-    private List<Character> characters;
+    private List<PlayerCharacter> characters;
 
     //Password stuff
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

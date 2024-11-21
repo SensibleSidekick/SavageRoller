@@ -6,10 +6,9 @@ import jakarta.validation.constraints.Size;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.savageroller.poc_savageroller.models.User;
 
 @Entity
-public class Character extends Attributes {
+public class PlayerCharacter extends Attributes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +20,11 @@ public class Character extends Attributes {
     @Size(max = 500, message = "Cannot be longer than 500 characters.")
     private String description;
 
+
+    @ElementCollection
+    @MapKeyColumn(name= "level")
+    @Column(name = "isTrue")
+    @CollectionTable(name="advance", joinColumns = @JoinColumn(name="player_character_advance_id"))
     private Map<String, Boolean> advance = new HashMap<String, Boolean>();
     private int benny = 3;
     private String race;
@@ -35,9 +39,9 @@ public class Character extends Attributes {
 
     //Constructors
 
-    public Character(){}
+    public PlayerCharacter(){}
 
-    public Character(String characterName, Map<String, Boolean> advance, User user, String description) {
+    public PlayerCharacter(String characterName, Map<String, Boolean> advance, User user, String description) {
         super(4,4,4,4,4);
         this.characterName = characterName;
         this.advance = advance;

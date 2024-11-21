@@ -29,7 +29,8 @@ public class Character extends Attributes {
     private int weight;
     private String size;
 
-    @OneToMany(mappedBy = "characters")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     //Constructors

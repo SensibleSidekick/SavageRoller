@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping
+@RequestMapping("/register")
 @CrossOrigin("5173")
-public class CharacterController {
+public class PlayerCharacterController {
 }

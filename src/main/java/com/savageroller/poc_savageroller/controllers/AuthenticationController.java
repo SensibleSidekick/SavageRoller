@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 @CrossOrigin("5173")
 public class AuthenticationController {
 

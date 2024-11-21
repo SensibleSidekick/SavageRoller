@@ -9,7 +9,7 @@ import java.util.Map;
 import com.savageroller.poc_savageroller.models.User;
 
 @Entity
-public class Character {
+public class Character extends Attributes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +37,7 @@ public class Character {
     public Character(){}
 
     public Character(String characterName, Map<String, Boolean> advance, User user, String description) {
+        super(4,4,4,4,4);
         this.characterName = characterName;
         this.advance = advance;
         this.user = user;

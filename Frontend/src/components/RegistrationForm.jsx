@@ -88,22 +88,28 @@ function RegistrationForm() {
     return(
         <>
         <form onSubmit={handleSignup}>
+            <h1>Register</h1>
+            {setValidationMessage && <div>{setValidationMessage}</div>}
+
             <label>Username
-                <input type="text" value={username} onChange={(e) =>setUsername(e.target.value)}>
-                </input>
+                <input type="text" value={username} onChange={(e) =>setUsername(e.target.value)} required/>
             </label>
+            {errors.username && <span className= 'text-red-500 text-sm'>{errors.username}</span>}
             <label>Email
                 <input type="text" value={email} onChange={(e) =>setEmail(e.target.value)}>
                 </input>
             </label>
+            {errors.email && <span className= 'text-red-500 text-sm'>{errors.email}</span>}
             <label>Password
                 <input type="text" value={password} onChange={(e) =>setPassword(e.target.value)}>
                 </input>
             </label>
+            {errors.password && <span className= 'text-red-500 text-sm'>{errors.password}</span>}
             <label>Confirm Password
                 <input type="text" value={confirmPassword} onChange={(e) =>setConfirmPassword(e.target.value)}>
                 </input>
             </label>
+            {errors.confirmPassword && <span className= 'text-red-500 text-sm'>{errors.confirmPassword}</span>}
 
             <button type="submit">Submit</button>
             <Link to='/'>
@@ -118,6 +124,6 @@ function RegistrationForm() {
     )
 
 
-}
+};
 
 export default RegistrationForm;

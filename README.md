@@ -1,4 +1,4 @@
-![alt text](Frontend\src\assets\SWFanLogo.png "SavageWorlds Fan Logo")
+![alt text](Frontend/src/assets/SWFanLogo.png)
 
 
 My first project outside of a curriculum, I am attempting to create a character sheet storage and dice rolling app for the tabletop RPG system called Savage Worlds. 
